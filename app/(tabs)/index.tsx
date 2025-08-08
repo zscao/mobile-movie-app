@@ -16,7 +16,9 @@ export default function Index() {
     error, 
     loading,
     refetch
-  } = useFetch(() => fetchMovies(), false);
+  } = useFetch(() => fetchMovies({
+    query: ""
+  }), false);
 
   useEffect(() => {
     if(!loading) refetch();

@@ -6,7 +6,7 @@ export default function MovieCard({ movie }: { movie: Movie }) {
 
   const imageUrl = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-    : 'https://placehold.co/600x400/1a1a1a/ffffff.png';
+    : 'https://placehold.co/500x750/1a1a1a/ffffff.png?text=No+Image';
 
   return (
     <Link href={`/movies/${movie.id}`} asChild>

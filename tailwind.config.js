@@ -13,9 +13,10 @@ module.exports = {
           300: "#9ca4ab",
         },
         dark: {
-          100: "#22ff3d",
+          100: "#221f3d",
           200: "#0f0d23",
-        }
+        },
+        accent: "#AB8BFF",
       }
     },
   },

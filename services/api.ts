@@ -25,3 +25,25 @@ export async function fetchMovies({ query }: { query?: string } = {}) {
   const data = await response.json();
   return data.results as Movie[] || [];
 }
+
+
+export async function fetchMovieDetails(movieId: string) : Promise<MovieDetails> {
+  try {
+    const response = await fetch(`${TmdbConfig.baseUrl}/movie/${movieId}?api_key=${TmdbConfig.apiKey}`, {
+      method: 'GET',
+      headers: TmdbConfig.headers,
+    });
+
+    if (!response.ok) {
+      console.log(`Error fetching movie details: ${response.statusText}`);
+      throw new Error(`Error fetching movie details: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data as MovieDetails;
+  }
+  catch (error) {
+    console.log(error);
+    throw new Error(`Error fetching movie details: ${error instanceof Error ? error.message : "Unknown error"}`);
+  }
+} 
